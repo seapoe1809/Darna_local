@@ -1,0 +1,74 @@
+ DARNA. HI
+ 
+ This is a sample pdf file of your health summary. If you have a version available in the main Health_server, please move it to the static folder and rename it summary.pdf. Your summary file should look something like this:
+ 
+ Name: John Doe
+ Age: 35
+ Sex: M
+ Address: 123 Darna street, Boston, MA
+ 
+ Allergies:
+ None
+ 
+ Active problems:
+ 1. Hypertension
+ 2. health care maintenance
+ 
+ 
+ Past Medical History:
+ 1. Hypertension
+ 2. Diabetes Type 2
+ 3. Urinary tract infection
+ 4. Presbyopia
+ 
+ Past surgical history:
+ 1. Toe nail removal
+ 2. Endoscopy
+ 
+ Family History:
+ 1. Diabetes in mom
+ 2. Hypertension in dad
+ 
+ Medications:
+ 1. Norvasc 10 mg daily
+ 2. Aspirin 81 mg daily
+ 
+ Previously stopped:
+ 1. Metformin 1000 mg BID
+ 
+Immunizations:
+COVID-19 Pfizer Vaccine, mRNA, PF (Given 11/2/2021, 1/8/2021, 12/18/2020)
+Influenza Quadrivalent Preservative Free IM (Given 9/22/2020, 10/7/2019, 9/26/2018, 9/27/2017, 9/9/2016, 9/14/2015)
+Influenza, Unspecified Formulation (Given 10/5/2021, 9/22/2020, 9/22/2020, 10/1/2019, 10/9/2014)
+
+Social history:
+Previous Smoker 
+Occassional Alcohol user
+
+Last filed Vital signs:
+11/22/22
+BP 120/80
+HR 80/min
+RR 20 /min
+Wt 180lbs
+Oxygen sat 98%
+
+Results:
+11/22/22
+Hgb 12
+HCT 32
+Creat 1.7
+Na 122
+HBa1c 5.5
+
+Chest xray: Normal with no acute abnormalities noted.
+
+Care teams:
+PCP
+Dr Darna Hi 123 Darna St, Boston MA, Ph 888-888-8888
+
+Patient Contact:
+Spouse 
+Ms Darna Hi
+Ph 1234457890
+email: pmqa@gamil.com

@@ -1,0 +1,50 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.text {
+  background-color: rgba(0, 0, 0, 0.85);
+  color: gold;
+  padding: 5px;
+  text-align: center;
+  text-shadow: 2px 5px 10px rgba(0, 0, 0, 1);
+  font-family: Calibri;
+  outline: none;
+  -webkit-text-stroke: 0.5px darkgrey;
+  font-size: 25px;
+  animation: moving-shadow 3s infinite;
+}
+
+.container {
+  width: 100%;
+  height: calc(100% - 5px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+  animation: moving-shadow 3s infinite;
+}
+
+.container:hover {
+  animation: moving-shadow 3s infinite;
+}
+
+.icons {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: grid;
+}
+
+.icons a {
+  color: grey;
+  text-decoration: none;
+  font-size: 80px;
+  margin: 20px;
+}
+

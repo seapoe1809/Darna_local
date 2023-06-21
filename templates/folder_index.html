@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HEALTH FOLDER</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
+    <style>
+        body {
+            margin: 20;
+            padding: 0;
+            background-position: top;
+            background-image: url("{{ url_for('static', filename='bkg0.png') }}"); /* Replace "bkg.png" with your mobile background image path */
+        }
+	
+        .form_container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+            gap: 5px; /* Gap between columns */
+            justify-items: top; /* Center items horizontally within each column */
+            align-items: top; /* Align items to the top of each column */
+            padding: 5px; /* Add padding as desired */
+            background-color: hsla(244, 16%, 92%, 0.6); /* Added background color */
+            
+        }
+
+        ul {
+            list-style-type: none; /* Remove default list styles */
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 0rem; /* Add margin between list items */
+            background-color: #f9f9f9; /* default color*/
+        }
+        
+        li:nth-child(4n+1) {
+        background-color: #f1f1f1; /* Light grey background color for even list items */
+    }
+        li:nth-child(4n) {
+        background-color: #f1f1f1; /* Light grey background color for even list items */
+    }
+       .directory:before {
+        content: "\1F5C4"; /* Unicode character for 🗄️ */
+        font-size: 20px; /* Adjust the font size as desired */
+        margin-right: 5px; /* Add spacing between the icon and text */
+    }
+
+    .file:before {
+        content: "\1F4C3"; /* Unicode character for 📃 */
+        font-size: 20px; /* Adjust the font size as desired */
+        margin-right: 5px; /* Add spacing between the icon and text */
+    }
+        .text {
+            margin-top: 0rem; /* Add margin as desired */
+        }
+    </style>
+</head>
+<body>
+    <div class="text">
+        <h1 style="font-family: Calibri, sans-serif; font-size: 50px; font-weight: bold; font-style: bold;text-align: center;">DARNA.HI</h1>
+        <h2 style="font-family: Calibri, sans-serif; font-size: 30px; font-weight: bold; text-align: center;">HEALTH FOLDER
+        </h2>
+        
+    </div>
+    <div>
+        <ul class="form_container">
+            {% for file in files %}
+            <li>
+                <a href="{{ file.path }}">
+                    <div>
+                        {% if file.is_folder %}
+                        <text class="directory" filename="🗄️">
+                        {% else %}
+                        <text class="file" filename='fle.png'>
+                        {% endif %}
+                    {{ file.filename }}</div>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
+

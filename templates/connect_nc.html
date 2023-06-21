@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Connect NC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
+ 
+ <style>
+ body{
+ background-image: {{ url_for('static', filename='bkg0.png')}};
+ }
+ </style>
+   
+</head>
+
+<body>
+	
+<h1 style="font-family: Calibri, sans-serif; font-size: 30px; font-weight: bold; color: black; font-style: bold;text-align: center;">DARNA.HI</h1>
+    <h2 style="font-family: Calibri, sans-serif; font-size: 20px; font-weight: bold; color: black; font-style: bold;text-align: center;">CONNECT YOUR SERVER</h2>
+ 
+ <p>
+ 1. <a href="nextcloud://">Goto Nextcloud app if installed.</a>
+ 
+ </p>
+ <p>
+ 2. <a href="#nextcloud_ios">Connect NextCloud to iOS Files.</a> </p>
+<p> 
+ 3. <a href="#nextcloud_macos"> Connect Nextcloud to MacOS.</a></p>
+ 
+
+
+<img src="Nextcloud.png", width=50, height=50>
+
+<h3 style="font-family: Calibri, sans-serif; font-size: 20px; font-weight: bold; color: darkblue; font-style: bold;text-align: center;">Connect NextCloud to Files in iOS</h3>
+<p id="nextcloud_ios">
+ </p> <p>
+This guide allows you to connect your Nextcloud to 'Files' in iOS. Downloading the app and configuring your app will allow it to automatically connect to files.  However the steps to access it are as follows if you would still like to access it from "Files":
+ </p> <p>
+ 1.  Open "Files" on your iOS.
+ </p> <p>
+ 2.  Click on "Browse". THis the last tab to the bottom right of the screen. Click "Browse" again until you arrive at "Browse" menu. It will have several options on your screen. 
+  </p> <p>
+ 3.  The subheadings include "Locations", "Favorites", "Shared". "Nextcloud" might show show up in "Locations" if the app is already configured. In this case you are done and could connect by clicking on "Nextcloud".
+  </p> <p>
+  
+ 
+ 
+ </p>
+ 
+<h3 style="font-family: Calibri, sans-serif; font-size: 20px; font-weight: bold; color: darkblue; font-style: bold;text-align: center;">Connect Nextcloud to MacOS</h3>
+<p id="nextcloud_macos">
+This guide allows you to connect your Nextcloud account to MacOS.   The steps are as follows: 
+ </p> <p>
+1.  To connect your health server on MacOS, press the following keys together : ⌘ + K OR Command + K
+ </p> <p>
+2.  This will take you to a input bar that says enter you "Server" information.
+ </p> <p>
+3.  Enter your information that would look something like this: "<nextcloud.user.com>/remote.php/dav/files/admin". In this please replace <nextcloud.user.com> with your domain address. Then press connect.
+ </p> <p>
+4.  Your mac will now try to connect.
+ </p> <p>
+5.  To go to your server, click on 'Finder', which is usually the first icon in bottom left of screen.
+ </p> <p>
+6.  Goto "Locations" and then "Network". Nextcloud should now show up there. On clicking it might prompt you for <username> and <password>.
+
+</p>
+
+
+ 

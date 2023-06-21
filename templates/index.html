@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DARNA.HI</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
+</head>
+<body>
+  <div class="text">
+    <h1 style="font-family: Calibri, sans-serif; font-size: 50px; font-weight: bold; font-style: bold;text-align: center;">DARNA.HI</h1>
+   
+  </div>
+  
+  <div class="container">
+  
+    <ul class="icons">
+      <li><a href="{{ url_for('folder_index') }}" target="_blank" class="home"><img class="icon" src="{{ url_for('static', filename='home.png') }}" alt="Home"></a></li>
+      <li><a href="{{ url_for('static', filename='summary.pdf') }}" target="_blank" class="healthfile"><img class="icon" src="{{ url_for('static', filename='healthfile.png') }}" alt="Health File"></a></li>
+      <li><a href="/connect_nc" target="_blank" class="nc"><img class="icon" src="{{ url_for('static', filename='nc.png') }}" alt="nc"></a></li>
+      <li><a href="/launch-program" target="_blank" class="sync"><img class="icon" src="{{ url_for('static', filename='sync.png') }}" alt="Sync"></a></li>
+      <li><a href="/upload" target="_blank" class="upload"><img class="icon" src="{{ url_for('static', filename='upload.png') }}" alt="Upload"></a></li>
+      <li><a href="http://{{ip_address}}:3000" target="_blank" class="graph"><img class="icon" src="{{ url_for('static', filename='graph.png') }}" alt="Graph"></a></li>
+    </ul>
+    </div>
+    <div class="form-container" style="position: fixed; left: 0; bottom: 1rem; width: 100%; text-align: center;">
+  <a href="/logout">
+    <button type="submit" class="login__button"><i class="fas fa-upload"></i> EXIT</button>
+  </a>
+</div>
+
+</body>
+</html>
+
