@@ -9,11 +9,13 @@ import variables
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_jjkjdhbclskdbvlkdfv'
 
-folderpath = variables.HS_path
+#importing variables from variables.py
+HS_path = variables.HS_path
+ocr_files = variables.ocr_files
+upload_dir = variables.upload_dir
+folderpath = variables.Health_files
 ip_address = variables.ip_address
-user = variables.user
-pwd = variables.pwd
-nextcloud_url = f"https://{ip_address}:8080/remote.php/dav/files/{user}/Darnahi"
+
 # Configure static folder path
 app.static_folder = 'static'
 
@@ -67,6 +69,7 @@ def folder_index(foldername=None):
     folder_path = folderpath
     if foldername:
         folder_path = os.path.join(folder_path, foldername)
+    
     command = f"ls -l {folder_path}"
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
 
@@ -84,22 +87,32 @@ def folder_index(foldername=None):
             else:
                 file_links.append({'filename': filename, 'path': f'/folder/{filename}/', 'is_folder': True})
         else:
-            file_links.append({'filename': filename, 'path': f'/{filename}', 'is_folder': False})
+            if foldername:
+                file_links.append({'filename': filename, 'path': f'/folder/{foldername}/{filename}', 'is_folder': False})
+            else:
+                file_links.append({'filename': filename, 'path': f'/{filename}', 'is_folder': False})
 
     return render_template('folder_index.html', files=file_links)
 
+
 @app.route('/<path:filename>')
 def serve_file(filename):
+    if 'logged_in' not in session:
+        return redirect('/login')
+    
     return send_from_directory(folderpath, filename, as_attachment=False)
 
 @app.route('/folder/<path:foldername>/<path:filename>')
 def serve_file2(foldername, filename):
-    folder_path = folderpath
-    if foldername:
-        folder_path = os.path.join(folder_path, foldername)
+    if 'logged_in' not in session:
+        return redirect('/login')
+    
+    folder_path = os.path.join(folderpath, foldername)
     return send_from_directory(folder_path, filename, as_attachment=False)
 
+
 @app.route('/launch-program')
+
 def launch_program():
 
     return redirect('/sudopwd')
@@ -123,7 +136,7 @@ def execute_command():
 
     folder_path = folderpath
     command1 = ['sudo', 'rsync', '-avz', '--chmod=750', '/home/darnahi/admin/files/Darnahi', f'{folder_path}']
-    command2 = ["curl", "-u", f"{user}:{pwd}", "-T", f"{folder_path}", f"{nextcloud_url}" ]
+    command2 = ["caffeine &"]
 
     password = session.get('sudopwd', '')
 
@@ -165,7 +178,7 @@ def upload_file():
         file = request.files['file']
         if file:
             filename =file.filename
-            file.save(os.path.join(folderpath. filename))
+            file.save(os.path.join(upload_dir, filename))
             return 'File uploaded successfully!'
     return render_template('upload.html')
 
