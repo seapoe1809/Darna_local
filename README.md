@@ -1,3 +1,5 @@
+##########################DO NOT USE. UNDER CONSTRUCTION#####################
+
 # Darna_local which creates a local instance/ server without need for nextcloud
 ##DARNA Healthy Intent v1.0- An open source intiative - self custody of your health data
 ##feel free to contribute
