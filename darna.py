@@ -225,8 +225,8 @@ def execute_command():
         process6 = subprocess.run(command6, check=True, shell=True)
     except subprocess.CalledProcessError as e:
         return "Error occurred while clearing files in the upload directory."
-
-    return "Programs launched successfully! Clearing files in the upload directory."
+    return render_template('success.html', success_message='"Programs launched successfully! Clearing files in the upload directory."')
+   
 
 
 @app.route('/upload', methods=['GET', 'POST'])
@@ -239,7 +239,7 @@ def upload_file():
         if file:
             filename =file.filename
             file.save(os.path.join(upload_dir, filename))
-            return 'File uploaded successfully!'
+            return render_template('success.html')
     return render_template('upload.html')
 
 @app.route('/connect_nc')
@@ -263,11 +263,17 @@ def apple_view():
     
     return redirect(url2)
 
+@app.route('/analyze')
+def analyze():
+    if 'logged_in' not in session:
+        return redirect('/login')
+    
+    return render_template('analyze.html')
 
 @app.errorhandler(404)
 def page_not_found(error):
     print("Error 404 Encountered")
-    return render_template('error.html', error_message='Page not found'), 404
+    return render_template('errors.html', error_message='Page not found'), 404
 
 if __name__== '__main__':
     app.run('0.0.0.0', port=3001)
