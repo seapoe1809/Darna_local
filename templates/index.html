@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon.png') }}">
+
 </head>
 <body>
   <div class="text">
@@ -20,7 +22,7 @@
       <li><a href="/connect_nc" target="_blank" class="nc"><img class="icon" src="{{ url_for('static', filename='nc.png') }}" alt="nc"></a></li>
       <li><a href="/launch-program" target="_blank" class="sync"><img class="icon" src="{{ url_for('static', filename='sync.png') }}" alt="Sync"></a></li>
       <li><a href="/upload" target="_blank" class="upload"><img class="icon" src="{{ url_for('static', filename='upload.png') }}" alt="Upload"></a></li>
-      <li><a href="http://{{ip_address}}:3000" target="_blank" class="graph"><img class="icon" src="{{ url_for('static', filename='graph.png') }}" alt="Graph"></a></li>
+      <li><a href="/apple_view" target="_blank" class="graph"><img class="icon" src="{{ url_for('static', filename='graph.png') }}" alt="Graph"></a></li>
     </ul>
     </div>
     <div class="form-container" style="position: fixed; left: 0; bottom: 1rem; width: 100%; text-align: center;">

@@ -25,27 +25,55 @@
  
  </p>
  <p>
- 2. <a href="#nextcloud_ios">Connect NextCloud to iOS Files.</a> </p>
-<p> 
- 3. <a href="#nextcloud_macos"> Connect Nextcloud to MacOS.</a></p>
+ 2. <a href="#qrcode">Connect other devices using QR Code.</a> </p>
+ <p> 
+ 3. <a href="#using_grafana"> How to view your dashboards on 'View my Device Data' via Grafana.
+ <p>
+ 4. <a href="#nextcloud_macos"> Connect Nextcloud to MacOS.</a></p>
  
 
 
-<img src="Nextcloud.png", width=50, height=50>
+<div style="display: flex; justify-content: center; align-items: center; height: 70vh;">
+  <img src="{{ url_for('static', filename='qrcode.png') }}" width="100" height="100" alt="QR Code">
+</div>
 
-<h3 style="font-family: Calibri, sans-serif; font-size: 20px; font-weight: bold; color: darkblue; font-style: bold;text-align: center;">Connect NextCloud to Files in iOS</h3>
-<p id="nextcloud_ios">
+
+<h3 style="font-family: Calibri, sans-serif; font-size: 20px; font-weight: bold; color: darkblue; font-style: bold;text-align: center;">Connect other devices using QR Code on iOS.</h3>
+<p id="qrcode">
  </p> <p>
-This guide allows you to connect your Nextcloud to 'Files' in iOS. Downloading the app and configuring your app will allow it to automatically connect to files.  However the steps to access it are as follows if you would still like to access it from "Files":
+This guide allows you to connect other devices to your Darna Server. It does require you to have camera enabled to scan QR codes:
  </p> <p>
- 1.  Open "Files" on your iOS.
+ 1.  Open "camera app" on your iOS. When pointed to QR code it should give you a link to click on. Click on link.
  </p> <p>
- 2.  Click on "Browse". THis the last tab to the bottom right of the screen. Click "Browse" again until you arrive at "Browse" menu. It will have several options on your screen. 
+ 2.  On the bottom ribbon of browser window on your iOS device, click on '⮹'. Then choose 'Add to home screen'. 
   </p> <p>
- 3.  The subheadings include "Locations", "Favorites", "Shared". "Nextcloud" might show show up in "Locations" if the app is already configured. In this case you are done and could connect by clicking on "Nextcloud".
+ 3.  This link will now allow you to launch the server directly from your home screen when connected to local WIFI where the server is enabled.
   </p> <p>
   
+
+<h3 style="font-family: Calibri, sans-serif; font-size: 20px; font-weight: bold; color: darkblue; font-style: bold;text-align: center;">How to view your dashboards on 'View my Device Data' via Grafana.</h3>
+<p id="using_grafana">
+ </p> <p>
+This guide allows you to connect other devices to the Grafana Viewer via Darna Server. It does require you to upload your device data:
+ </p> <p>
+ 1.  Open "Health app" on your iOS. Then download iOS health files: On Apple "Health app", click the profile icon to the top right, scroll all the way down, then choose "Export All Health Data", click "Export" and save the zip file to iOS Files folder.
+ </p> <p>
+ 2.  On the Darna Server, choose 'Uploads' card, click 'choose file' on next page, navigate to iOS files folder and choose 'export.zip' and finally choose 'upload'. 
+  </p> <p>
+ 3.  Once the 'export.zip' is in the 'uploads' folder, click 'Sync' card on the Darna Server. In the background, the Grafana and ingester will start. This could take time (around 5-10 min) as they could be upto 100,000 records to transfer.
+  </p> <p>
+ 4.  Once the records are transferred, click on the 'View my Device Data'. This should open a new webbrowser.
+  </p> <p>
+ 5.  Login using user: admin, password: health which are the default username and password
+  </p> <p>
+ 6.  Once logged in click on '≡' located at top left. That is the 'Toggle Menu'.
+  </p> <p>
+ 7.  Once on 'Toggle Menu', click 'Dashboards'. That will open all the active dashboards to choose from.
+  </p> <p>
+ 8.  Click on any of them to view your data. If you dont see any data, you might have to start steps all over again.
+  </p> <p>
  
+ </p>
  
  </p>
  
