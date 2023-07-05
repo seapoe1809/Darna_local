@@ -1,8 +1,11 @@
 ##Sets up the flask server for viewing the folder locally at {ip_address}:3001
 from flask import Flask, render_template, send_from_directory, session, request, redirect
+from urllib.parse import quote, unquote
+import webbrowser
 import os, subprocess
 import getpass
 import variables
+import qrcode
 
 
 
@@ -19,9 +22,6 @@ ip_address = variables.ip_address
 # Configure static folder path
 app.static_folder = 'static'
 
-"""@app.route('/')
-def index():
-    return render_template('index.html', ip_address=ip_address)"""
 
 @app.route('/')
 def home():
@@ -59,27 +59,22 @@ def logout():
     session.pop('logged_in', None)
     return redirect('/login')
 
-
 @app.route('/folder')
 @app.route('/folder/<path:foldername>')
 def folder_index(foldername=None):
     if 'logged_in' not in session:
         return redirect('/login')
-    
+
     folder_path = folderpath
     if foldername:
         folder_path = os.path.join(folder_path, foldername)
-    
-    command = f"ls -l {folder_path}"
-    result = subprocess.run(command, shell=True, capture_output=True, text=True)
 
-    files = result.stdout.splitlines()
+    files = os.listdir(folder_path)
     file_links = []
 
-    for file in files:
-        file_info = file.split()
-        filename = file_info[-1]
-        is_directory = file_info[0].startswith("d")
+    for filename in files:
+        file_path = os.path.join(folder_path, filename)
+        is_directory = os.path.isdir(file_path)
 
         if is_directory:
             if foldername:
@@ -94,36 +89,36 @@ def folder_index(foldername=None):
 
     return render_template('folder_index.html', files=file_links)
 
-
 @app.route('/<path:filename>')
 def serve_file(filename):
     if 'logged_in' not in session:
         return redirect('/login')
-    
-    return send_from_directory(folderpath, filename, as_attachment=False)
+
+    decoded_filename = unquote(filename)
+    return send_from_directory(folderpath, decoded_filename, as_attachment=False)
+
 
 @app.route('/folder/<path:foldername>/<path:filename>')
 def serve_file2(foldername, filename):
     if 'logged_in' not in session:
         return redirect('/login')
-    
+
     folder_path = os.path.join(folderpath, foldername)
-    return send_from_directory(folder_path, filename, as_attachment=False)
+    decoded_filename = unquote(filename)
+    return send_from_directory(folder_path, decoded_filename, as_attachment=False)
 
 
 @app.route('/launch-program')
-
 def launch_program():
-
     return redirect('/sudopwd')
 
 @app.route('/sudopwd', methods=['GET', 'POST'])
 def sudopwd():
     if request.method == 'POST':
-        password = request.form['sudopwd']
+        password1 = request.form['sudopwd']
 
         # Set the sudo password in the session
-        session['sudopwd'] = password
+        session['sudopwd'] = password1
 
         return redirect('/execute-command')
 
@@ -134,12 +129,43 @@ def execute_command():
     if 'sudopwd' not in session:
         return redirect('/sudopwd')
 
-    folder_path = folderpath
-    command1 = ['sudo', 'rsync', '-avz', '--chmod=750', '/home/darnahi/admin/files/Darnahi', f'{folder_path}']
-    command2 = ["caffeine &"]
+    command1 = ['sudo', '-S', 'rsync', '-avz', '--chmod=750']
+    source_dir = upload_dir
+    destination_dir1 = ocr_files
+    destination_dir2 = folderpath
+    files_to_rsync = []
+    
+    password1 = session.get('sudopwd', '')
+    
+        
+    # Rsyncing files to parent directory, fist code to execute
+    command1_all_files = ['sudo', '-S', 'rsync', '-avz', '--chmod=750', f"{upload_dir}/", f"{folderpath}/"]
+    try:
+        process_all_files_sync=subprocess.Popen(
+           command1_all_files,
+           stdin=subprocess.PIPE,
+           stdout=subprocess.PIPE,
+           universal_newlines=True
+        )
+        output, error = process_all_files_sync.communicate(input=password1 + '\n')
+        if process_all_files_sync.returncode != 0:
+            return "Unable to run due to non-superuser status!"
+    except subprocess.CalledProcessError as e:
+        return "Error occurred while clearing files in the upload directory."   
+    # setting up to Sync select files to ocr_files directory
+    
 
-    password = session.get('sudopwd', '')
+    for filename in os.listdir(source_dir):
+        file_path = os.path.join(source_dir, filename)
+        if os.path.isfile(file_path) and any(filename.endswith(ext) for ext in ['.pdf', '.png', '.jpg', '.txt', '.jpeg']):
+            files_to_rsync.append(file_path)
 
+    if not files_to_rsync:
+        return "No files to synchronize!"
+
+    command1.extend(files_to_rsync)
+    command1.append(destination_dir1)
+    #running rsync part 2 code to sync with ocr-dir
     try:
         process1 = subprocess.Popen(
             command1,
@@ -147,26 +173,60 @@ def execute_command():
             stdout=subprocess.PIPE,
             universal_newlines=True
         )
-        output, error = process1.communicate(input=password + '\n')
+        output, error = process1.communicate(input=password1 + '\n')
 
         if process1.returncode != 0:
             return "Unable to run due to non-superuser status!"
-            
-        for filename in os.listdir(f'{folder_path}'):
-            file_path = os.path.join(f'{folder_path}', filename)
-            if os.path.isfile(file_path):
-                process2 = subprocess.Popen(
-                    command2,
-                    stdin=subprocess.PIPE,
-                    stdout=subprocess.PIPE,
-                    universal_newlines=True
-                )
-                process2.communicate()
-            
-        return "Program launched successfully!"
-    except subprocess.CalledProcessError as e:
-        return "Error occurred while running the Sync! Login directly to continue."
 
+    except subprocess.CalledProcessError as e:
+        return "Error occurred while running rsync command for file synchronization."
+        
+    #running caffeine to keep computed awake
+    command2 = ['caffeine']
+    try:
+        process2 = subprocess.Popen(command2)
+    except subprocess.CalledProcessError as e:
+        return "Error occurred while running caffeine."
+    
+    #setting up to run apple health grafana
+    command3 = ['sudo', '-S', 'docker-compose', '-f', 'apple-health-grafana/docker-compose.yml', '-p', 'apple-health-grafana', 'pull']
+    command4 = ['sudo', '-S', 'docker-compose', '-f', 'apple-health-grafana/docker-compose.yml', '-p', 'apple-health-grafana', 'up', '-d', 'grafana', 'influx']
+    command5 = ['sudo', '-S', 'docker-compose', '-f', 'apple-health-grafana/docker-compose.yml', '-p', 'apple-health-grafana', 'up', 'ingester']
+    
+
+    try:
+        export_zip_path = os.path.join(source_dir, 'export.zip')
+        if os.path.isfile(export_zip_path):
+            process3 = subprocess.Popen(
+                command3,
+                stdin=subprocess.PIPE,
+                stdout=subprocess.PIPE,
+                universal_newlines=True
+            )
+            output, error = process3.communicate(input=password1 + '\n')
+
+            process4 = subprocess.Popen(
+                command4,
+                stdin=subprocess.PIPE,
+                stdout=subprocess.PIPE,
+                universal_newlines=True
+            )
+            output, error = process4.communicate(input=password1 + '\n')
+
+            process5 = subprocess.run(command5, check=True)
+            
+
+    except subprocess.CalledProcessError as e:
+        return "Error occurred while running Grafana Docker commands."
+     
+    #running command 6 to clear files in upload dir
+    command6 = f'rm -rf {source_dir}/*'
+    try:
+        process6 = subprocess.run(command6, check=True, shell=True)
+    except subprocess.CalledProcessError as e:
+        return "Error occurred while clearing files in the upload directory."
+
+    return "Programs launched successfully! Clearing files in the upload directory."
 
 
 @app.route('/upload', methods=['GET', 'POST'])
@@ -186,8 +246,23 @@ def upload_file():
 def connect_nc():
     if 'logged_in' not in session:
         return redirect('/login')
-
+    url = "http://192.168.99.245:3001"
+    qr = qrcode.QRCode()
+    qr.add_data(url)
+    qr.make()
+    image = qr.make_image()
+    image.save(f'{HS_path}/static/qrcode.png')
     return render_template('connect_nc.html')
+    
+@app.route('/apple_view')
+def apple_view():
+    if 'logged_in' not in session:
+        return redirect('/login')
+        
+    url2 = f"http://{ip_address}:3000"
+    
+    return redirect(url2)
+
 
 @app.errorhandler(404)
 def page_not_found(error):

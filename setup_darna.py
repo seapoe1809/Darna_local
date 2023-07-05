@@ -12,7 +12,7 @@ import socket
 
 ##cmd to start process python3 setup_darna.py
 print('*************WELCOME TO DARNA Health Intent*************')
-print('*******self custody your health data************
+print('*******self custody your health data************')
 print(' Step 1: Will try to install rsync (to help sync the Health_server files), caffeine (to prevent the device from falling asleep while running Health_server.')
 
 #get rsync to import zip files from Health_server
@@ -54,8 +54,24 @@ shutil.copytree('static', f'{HS_path}/static')
 shutil.copytree('apple-health-grafana', f'{HS_path}/apple-health-grafana')
 
 #opens browser at <ip address: 8080>
-hostname = socket.gethostname()
-ip_address = socket.gethostbyname(hostname)
+#ip address generate
+#get IP address
+def get_ip_address():
+    # Create a socket object
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+    try:
+        # Connect to a remote server (Google DNS)
+        sock.connect(("8.8.8.8", 80))
+
+        # Get the local IP address
+        ip_address = sock.getsockname()[0]
+    finally:
+        # Close the socket
+        sock.close()
+
+    return ip_address
+ip_address = get_ip_address()
 
 #prepare content and write to variables.py
 url =f'{ip_address}:3001'
@@ -73,7 +89,7 @@ with open(grafanadocker, 'r') as file:
 	lines = file.readlines()
 	
 if len(lines)>=1:
-	lines[-1]= volume
+	lines[-4]= volume
 
 with open(grafanadocker, 'w') as file:
 	file.writelines(lines)	
