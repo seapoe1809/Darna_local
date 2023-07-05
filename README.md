@@ -88,11 +88,11 @@ c) Scan PDF's: On nextcloud, choose the '+' menu in the lower center and make sc
  
  Step 3: sync files to your health server, unzip, create encrypted backups:
  ==========================================================================
- Goto your home folder Darna and enter the following python3 commands:
+ Goto your home folder Health_server and enter the following python3 commands:
         
    
                
-                 $python3 syncmyfiles.py
+                 $in process
        
  
  This step should lead to unzipping, syncing and setting you up with files in your health server. it should also set up Grafana to view your file. I am using https://github.com/k0rventen/apple-health-grafana code as this person seems to have done a fair job in visualizing the data. This followed by creating an encrypted backup in Darna folder done automatically by the syncmyfiles.py
