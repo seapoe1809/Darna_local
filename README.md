@@ -1,4 +1,4 @@
-##########################DO NOT USE. UNDER CONSTRUCTION#####################
+DARNA_LOCAL is DARNA V1.2
 
 # Darna_local which creates a local instance/ server without need for nextcloud
 ##DARNA Healthy Intent v1.0- An open source intiative - self custody of your health data
@@ -77,44 +77,47 @@ a) Make sure you have docker and python3. If not go to docker.com and python3; g
  
               $sudo apt-get install git
               $git clone https://github.com/seapoe1809/Darna_local
-              $cd Darna
+              $cd Darna_local
               $pip install -r requirements.txt
               $python3 setup_darna.py
+              
         
 
 
-Step 2: Download your health data in the health_server folder
-=========================================================
-a) Download ios health files: On apple health app, click the profile icon, then choose "Export All Health Data" and save the zip file in nextcloud to 'Darnahi' folder.
+Step 2: After the Health_server is set up it is ready to Launch:
+=================================================================
+Now that your server is ready to launch, cd to your health_server and Launch. Navigate back to your /home/user and do the following:
+
+              $cd Health_server
+              $python3 darna.py
+
+The server should be active at port :3000. The flask server when launched will give you the IP address at which it launched. You could now navigate to that http:// adddress with any mobile device and access the server.
+
+The default address it 'health'. You could change it in darna.py if you wish.
+
+
+
+**Step3: Download your health data in the health_server folder:**
+=================================================================
+
+a) Download ios health files: On apple health app, click the profile icon, then choose "Export All Health Data" and save the zip file in files. Then click on 'UPLOAD' card on your flask server and download to your server.
  
-b) If you have data on EPIC MyChart or your doctors gateway, login and go to Menu, search 'sharing' or 'export', click 'yourself' and download a zip file to 'Darnahi' folder.
+b) If you have data on EPIC MyChart or your doctors gateway, login and go to Menu, search 'sharing' or 'export', click 'yourself' and download a zip file to 'files'.  Then click on 'UPLOAD' card on your flask server and download to your server.
  
-c) Scan PDF's: On nextcloud, choose the '+' menu in the lower center and make scanned pdf's of your health documents and save to the 'Darnahi' folder.
+c) PDF's and JPGS on mobile: 'UPLOAD' card of server and follow instructions to download to your server.
+
+d) Once files are downloaded, to UPLOAD directory, click tha 'RUN SYNC' card to move files and start Grafana.
+
+e) Tips are in 'CONNECT' card of server. 
+
+f)  The default password for Darna is 'health' and for Grafana is user:'admin', password:'health'.
 
  
  
- Step 3: sync files to your health server, unzip, create encrypted backups:
- ==========================================================================
- Goto your home folder Health_server and enter the following python3 commands:
-        
-   
-               
-                 $in process
-       
  
- This step should lead to unzipping, syncing and setting you up with files in your health server. it should also set up Grafana to view your file. I am using https://github.com/k0rventen/apple-health-grafana code as this person seems to have done a fair job in visualizing the data. This followed by creating an encrypted backup in Darna folder done automatically by the syncmyfiles.py
+ Hope you like it! Please share feedback and let me know if you woudl like to contribute to this project. You could send feedbac by commenting on this repo or clicking on 'CONNECT' card and clicking on link saying 'email' the writer of repo.
  
- Step 4: Start the flask server to view your files
- ==================================================
- Go to the Health_server dir and start the flask server.
-          
-               $cd /home/<user>/Health_server
-               $python3 darna.py
- 
- 
- It should tell you which ip address to go to to start interacting with your data. Hope you like it! Please share feedback and let me know if you woudl like to contribute to this project.
- 
- The default password for Darna is 'health' and for Grafana is user:'admin', password:'health'.
+
  
 
  
