@@ -27,7 +27,7 @@ Snapshots:
 =============
 
 
-<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5771.jpeg" width =300, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5771.jpeg" width =300, height=500>
 <img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5772.jpeg" width =300, height=400>
 <img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5781.jpeg" width =300, height=400>
 <img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5773.jpeg" width =300, height=400>
