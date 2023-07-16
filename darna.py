@@ -6,6 +6,7 @@ import os, subprocess
 import getpass
 import variables
 import qrcode
+from pdf2image import convert_from_path
 
 
 
@@ -59,17 +60,17 @@ def logout():
     session.pop('logged_in', None)
     return redirect('/login')
 
+#making links for folder directory and files
 @app.route('/folder')
-@app.route('/folder/<path:foldername>')
-def folder_index(foldername=None):
+def folder_index():
     if 'logged_in' not in session:
         return redirect('/login')
 
     folder_path = folderpath
-    if foldername:
-        folder_path = os.path.join(folder_path, foldername)
 
+    files = []
     files = os.listdir(folder_path)
+
     file_links = []
 
     for filename in files:
@@ -77,18 +78,13 @@ def folder_index(foldername=None):
         is_directory = os.path.isdir(file_path)
 
         if is_directory:
-            if foldername:
-                file_links.append({'filename': filename, 'path': f'/folder/{foldername}/{filename}/', 'is_folder': True})
-            else:
-                file_links.append({'filename': filename, 'path': f'/folder/{filename}/', 'is_folder': True})
+            file_links.append({'filename': filename, 'path': f'/folder/{filename}', 'is_folder': True})
         else:
-            if foldername:
-                file_links.append({'filename': filename, 'path': f'/folder/{foldername}/{filename}', 'is_folder': False})
-            else:
-                file_links.append({'filename': filename, 'path': f'/{filename}', 'is_folder': False})
+            file_links.append({'filename': filename, 'path': f'/{filename}', 'is_folder': False})
 
     return render_template('folder_index.html', files=file_links)
 
+#serving files from folder directory
 @app.route('/<path:filename>')
 def serve_file(filename):
     if 'logged_in' not in session:
@@ -97,15 +93,60 @@ def serve_file(filename):
     decoded_filename = unquote(filename)
     return send_from_directory(folderpath, decoded_filename, as_attachment=False)
 
-
-@app.route('/folder/<path:foldername>/<path:filename>')
-def serve_file2(foldername, filename):
+#making file links in subdirectory    
+@app.route('/folder/<path:subfolder>')
+def subfolder_index(subfolder):
     if 'logged_in' not in session:
         return redirect('/login')
 
-    folder_path = os.path.join(folderpath, foldername)
+    folder_path = os.path.join(folderpath, subfolder)
+
+    files = []
+    if os.path.exists(folder_path):
+        files = os.listdir(folder_path)
+
+    file_links = []
+
+    for filename in files:
+        file_path = os.path.join(folder_path, filename)
+        is_directory = os.path.isdir(file_path)
+
+        if is_directory:
+            file_links.append({'filename': filename, 'path': f'/folder/{subfolder}/{filename}', 'is_folder': True})
+        else:
+            file_links.append({'filename': filename, 'path': f'/folder/{subfolder}/{filename}', 'is_folder': False})
+
+    return render_template('folder_index.html', files=file_links)
+
+    
+@app.route('/folder/<path:subfolder>/<path:nested_subfolder>/<path:filename>')
+@app.route('/folder/<path:subfolder>/<path:filename>')
+def serve_file_or_subfolder(subfolder, filename, nested_subfolder=''):
+    if 'logged_in' not in session:
+        return redirect('/login')
+
+    folder_path = os.path.join(folderpath, subfolder, nested_subfolder)
+
     decoded_filename = unquote(filename)
-    return send_from_directory(folder_path, decoded_filename, as_attachment=False)
+
+    if os.path.isdir(os.path.join(folder_path, decoded_filename)):
+        # Render subfolder index
+        files = os.listdir(os.path.join(folder_path, decoded_filename))
+        file_links = []
+
+        for file in files:
+            file_path = os.path.join(folder_path, decoded_filename, file)
+            is_directory = os.path.isdir(file_path)
+
+            if is_directory:
+                file_links.append({'filename': file, 'path': f'/folder/{subfolder}/{nested_subfolder}/{decoded_filename}/{file}', 'is_folder': True})
+            else:
+                file_links.append({'filename': file, 'path': f'/folder/{subfolder}/{nested_subfolder}/{decoded_filename}/{file}', 'is_folder': False})
+
+        return render_template('folder_index.html', files=file_links)
+    else:
+        # Serve file
+        return send_from_directory(folder_path, decoded_filename, as_attachment=False)
 
 
 @app.route('/launch-program')
@@ -263,12 +304,34 @@ def apple_view():
     
     return redirect(url2)
 
+@app.route('/pi')
+def pi():
+    if 'logged_in' in session:
+        # User is logged in, redirect to the protected page
+        return render_template('index2.html')
+    else:
+        # User is not logged in, redirect to the login page
+        return redirect('/login')
+        
 @app.route('/analyze')
 def analyze():
     if 'logged_in' not in session:
         return redirect('/login')
-    
-    return render_template('analyze.html')
+    command11 = ['python3', 'analyze.py']
+    try:
+        process11 = subprocess.Popen(
+            command11,
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            universal_newlines=True
+        )
+        output, error = process11.communicate()
+        # Process the output as needed
+        return render_template('analyze.html')
+    except Exception as e:
+        return str(e)
+
+
 
 @app.errorhandler(404)
 def page_not_found(error):
