@@ -110,9 +110,6 @@ c) Scan PDF's: On nextcloud, choose the '+' menu in the lower center and make sc
  The default password for Darna is 'health' and for Grafana is user:'admin', password:'health'.
  
 
- Other issues:
- 
-## Help needed for android nextcloud app setup, downloads and PDF scans OCR recognition
  
 Sources and references:
 1. https://github.com/k0rventen/apple-health-grafana
