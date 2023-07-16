@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pulsating Button</title>
+    <title>ANALYZE</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
     <style>
@@ -42,6 +42,16 @@
             animation: pulsate 4s infinite;
         }
 
+        .button a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            color: white;
+            text-decoration: none;
+        }
+
         @keyframes pulsate {
             0% {
                 background-color: orange;
@@ -80,18 +90,16 @@
 </head>
 <body>
     <div class="container">
-        <div class="button">Analyzing</div>
+        <div class="button"><a href="https://github.com/pnmeka/Darna_ML" target="_blank">Install package</a></div>
     </div>
 
     <div class="terminal-window">
         <!-- Place your terminal data output here -->
         <pre>
-            Analyzing the data in background. 
-            Please feel free to close window...
-            >> Analyze OCR Files
-            >> Generate Intents
-            >> Window will auto-close in minute
-            This might take around 10 min....
+            To download the analysis package please click on button
+            and follow instructions. 
+            >> https://github.com/pnmeka/Darna_ML
+            >> Window will auto-close in a minute
         </pre>
     </div>
 </body>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DARNA.HEALTH</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles2.css') }}">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon.png') }}">
+
+</head>
+<body>
+  <div class="text">
+   <h1 style="font-family: Calibri, sans-serif; font-size: 50px; font-weight: bold; font-style: bold;text-align: center;">PIE IN SKY</h1>
+    <h2 style="font-family: Calibri, sans-serif; font-size: 30px; font-weight: regular; font-style: bold;text-align: center;">DARNA.HI</h1>
+   
+  </div>
+  
+  <div class="container">
+  
+    <ul class="icons">
+      <li><a href="/" class="Landing"><img class="icon" src="{{ url_for('static', filename='return.png') }}" alt="Return"></a></li>
+      <li><a href="/analyze" target="_blank" class="analyze"><img class="icon" src="{{ url_for('static', filename='analyze.png') }}" alt="analyze"></a></li>
+      <li><a href="https://claude.ai/" target="_blank" class="AI"><img class="icon" src="{{ url_for('static', filename='AI.png') }}" alt="AI"></a></li>
+     
+      <li><a href="https://github.com/pnmeka/Darna_Tailscale_card" target="_blank" class="tailscale"><img class="icon" src="{{ url_for('static', filename='tailscale.png') }}" alt="TailScale"></a></li>
+      
+      <li><a href="https://github.com/pnmeka/XMR_card" target="_blank" class="XMR"><img class="icon" src="{{ url_for('static', filename='XMR.png') }}" alt="XMRD"></a></li>
+       
+
+    </ul>
+    </div>
+    <div class="form-container" style="position: fixed; left: 0; bottom: 1rem; width: 100%; text-align: center;">
+  <a href="/logout">
+    <button type="submit" class="login__button"><i class="fas fa-upload"></i> EXIT</button>
+  </a>
+</div>
+
+</body>
+</html>
+

@@ -12,9 +12,9 @@
             padding: 0;
             background-position: top;
             background-image: url("{{ url_for('static', filename='bkg0.png') }}"); /* Replace "bkg.png" with your mobile background image path */
-            background-repeat: no-repeat;
+            background-repeat: repeat;
             background-color: #f1f1f1;
-            background-size: cover;
+            background-size: stretch;
         }
 	.form_container {
             display: flex;
@@ -30,6 +30,19 @@
             margin: 0 auto;
             margin-top: 50px;
         }
+        .login__input {
+  	    width: 80%;
+            padding: 12px 12px;
+            border-radius: 6px;
+            border: 2px solid var(--text-color);
+            background-color: hsla(244, 16%, 92%, 0.6);
+            color: var(--title-color);
+            font-size: var(--smaller-font-size);
+            font-weight: var(--font-medium);
+            transition: border 0.4s;
+            margin: 0 auto;
+        }
+        
         .login__button {
             width: 70%;
             padding: 10px 1.5rem;
@@ -60,13 +73,13 @@
     <h2 style="font-family: Calibri, sans-serif; font-size: 20px; font-weight: bold; color: darkblue; font-style: bold;text-align: center;">Please enter super user password to run SYNC:</h2>
     <div style="text-align: center;">
     <form method="POST" action="/sudopwd">
-        <input type="sudopwd" name="sudopwd" placeholder="sudopwd" required>
+        <input type="sudopwd" name="sudopwd" class="login__input" placeholder="sudopwd" required>
         
         <button type="submit" class="login__button" onclick="showProcessing()"><i class="fas fa-upload"></i> GO</button>
   <span id="processingIcon" class="hidden"><i class="fas fa-spinner fa-spin"></i> Processing....'Patience is a Virtue'.....</span>
   
     </div>
-    <h3 style="font-family: Calibri, sans-serif; font-size: 14px; color: darkblue;text-align: center;">Will sync and analyze upload files in your Health Server</h3>
+    <h3 style="font-family: Calibri, sans-serif; font-size: 14px; color: darkblue;text-align: center;">Sync, analyze and run Grafana using upload-files in your Files</h3>
     </form>
 </div>
 <script>

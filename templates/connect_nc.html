@@ -16,10 +16,15 @@
 </head>
 
 <body>
+
+
 	
-<h1 style="font-family: Calibri, sans-serif; font-size: 30px; font-weight: bold; color: black; font-style: bold;text-align: center;">DARNA.HI</h1>
-    <h2 style="font-family: Calibri, sans-serif; font-size: 20px; font-weight: bold; color: black; font-style: bold;text-align: center;">CONNECT YOUR SERVER</h2>
+<h1 style="font-family: Calibri, sans-serif; font-size: 30px; font-weight: bold; color: black; font-style: bold;text-align: center;">QR CONNECT & TIPS</h1>
+    <h2 style="font-family: Calibri, sans-serif; font-size: 20px; font-weight: bold; color: black; font-style: bold;text-align: center;">DARNA.HI</h2>
  
+ <div style="display: flex; justify-content: center; align-items: center; height: 50vh;">
+  <img src="{{ url_for('static', filename='qrcode.png') }}" width="100" height="100" alt="QR Code">
+</div>
  <p>
  1. <a href="nextcloud://">Goto Nextcloud app if installed.</a>
  
@@ -27,15 +32,15 @@
  <p>
  2. <a href="#qrcode">Connect other devices using QR Code.</a> </p>
  <p> 
- 3. <a href="#using_grafana"> How to view your dashboards on 'View my Device Data' via Grafana.
+ 3. <a href="#using_grafana"> How to view your dashboards on 'View my Device Data' via Grafana.</a> </p>
  <p>
  4. <a href="#nextcloud_macos"> Connect Nextcloud to MacOS.</a></p>
- 
+ <p>
+ 5. <a href="mailto:pmqa198@gmail.com"> Email feedback to Darna creator </a></p>
+ <p>
+ 6.  <a href="#rsync"> What does 'RUN SYNC' do?.</a> </p>
 
 
-<div style="display: flex; justify-content: center; align-items: center; height: 70vh;">
-  <img src="{{ url_for('static', filename='qrcode.png') }}" width="100" height="100" alt="QR Code">
-</div>
 
 
 <h3 style="font-family: Calibri, sans-serif; font-size: 20px; font-weight: bold; color: darkblue; font-style: bold;text-align: center;">Connect other devices using QR Code on iOS.</h3>
@@ -43,7 +48,7 @@
  </p> <p>
 This guide allows you to connect other devices to your Darna Server. It does require you to have camera enabled to scan QR codes:
  </p> <p>
- 1.  Open "camera app" on your iOS. When pointed to QR code it should give you a link to click on. Click on link.
+ 1.  Open "camera app" on your iOS. When pointed to QR code at top of screen it should give you a link to click on. Click on link.
  </p> <p>
  2.  On the bottom ribbon of browser window on your iOS device, click on '⮹'. Then choose 'Add to home screen'. 
   </p> <p>
@@ -96,4 +101,15 @@ This guide allows you to connect your Nextcloud account to MacOS.   The steps ar
 </p>
 
 
+<h3 style="font-family: Calibri, sans-serif; font-size: 20px; font-weight: bold; color: darkblue; font-style: bold;text-align: center;">What does 'RUN SYNC' do?.</h3>
+<p id="rsync">
+ </p> <p>
+Im glad you asked. 'RUN SYNC' is many functions mashed into one. It started as just 'rsync' function that would move files from 'Upload' folder to the main folder 'Health_files'. However it has morphed as the Darna project has evolved. It does the following:
+ </p> <p>
+ 1.  Runs 'rsync' to move files from 'Upload' folder to 'Health_files' folder. It additionally screens for .PDF, .JPG, .PNG, .TXT files and also makes a copy in 'OCR_files'. This allows Tesseract in 'Analyze' card to read those documents.
+ </p> <p>
+ 2.  Initiates 'Caffeine' to keep you computer awake so that your server doesnt sleep when you are away. 
+  </p> <p>
+ 3.  If 'Export.zip' file containing your iOS health kit is available in 'Upload' directory, it unzips that file, initates Grafana and Influxdb, populates influxdb with your records.
+  </p>
  
