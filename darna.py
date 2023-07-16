@@ -287,7 +287,7 @@ def upload_file():
 def connect_nc():
     if 'logged_in' not in session:
         return redirect('/login')
-    url = "http://192.168.99.245:3001"
+    url = f"http://{ip_address}:3001"
     qr = qrcode.QRCode()
     qr.add_data(url)
     qr.make()
