@@ -33,8 +33,9 @@ Snapshots:
 <img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5773.jpeg" width =200, height=400>
 <img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5782.jpeg" width =200, height=400>
 <img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5774.jpeg" width =200, height=400>
-<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5783.jpeg" width =200, height=400>
 <img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5775.jpeg" width =200, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5783.jpeg" width =200, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5778.jpeg" width =200, height=400>
 <img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5785.jpeg" width =200, height=400>
 <img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5786.jpeg" width =200, height=400>
 <img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5779.jpeg" width =200, height=400>
@@ -46,7 +47,10 @@ Snapshots:
 <img src="https://github.com/seapoe1809/Darna/assets/82007659/86ab0bce-a0da-4330-9849-2d1600262f27" width =200, height=400>
 <img src="https://github.com/seapoe1809/Darna/assets/82007659/c8272ff2-69db-4984-8ebe-469cb02ee7ab" width =200, height=400>
 
-
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5787.jpeg" width =200, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5789.jpeg" width =200, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5790.jpeg" width =200, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5791.jpeg" width =200, height=400>
 
 
 basic requirements
