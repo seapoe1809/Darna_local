@@ -27,31 +27,31 @@ Snapshots:
 =============
 
 
-<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5771.jpeg" width =200, height=400>
-<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5772.jpeg" width =200, height=400>
-<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5781.jpeg" width =200, height=400>
-<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5773.jpeg" width =200, height=400>
-<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5782.jpeg" width =200, height=400>
-<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5774.jpeg" width =200, height=400>
-<img src="https://user-images.githubusercontent.com/82007659/243430051-478d54cd-5e25-4134-ba6c-21a67220b5f7.jpg" width =200, height=400>
-<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5775.jpeg" width =200, height=400>
-<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5783.jpeg" width =200, height=400>
-<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5778.jpeg" width =200, height=400>
-<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5785.jpeg" width =200, height=400>
-<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5786.jpeg" width =200, height=400>
-<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5779.jpeg" width =200, height=400>
-<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5777.jpeg" width =200, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5771.jpeg" width =300, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5772.jpeg" width =300, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5781.jpeg" width =300, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5773.jpeg" width =300, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5782.jpeg" width =300, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5774.jpeg" width =300, height=400>
+<img src="https://user-images.githubusercontent.com/82007659/243430051-478d54cd-5e25-4134-ba6c-21a67220b5f7.jpg" width =300, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5775.jpeg" width =300, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5783.jpeg" width =300, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5778.jpeg" width =300, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5785.jpeg" width =300, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5786.jpeg" width =300, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5779.jpeg" width =300, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5777.jpeg" width =300, height=400>
 
 
-<img src="https://github.com/seapoe1809/Darna/assets/82007659/f1c26f0c-fb38-48e1-8551-5b36de750c91" width =200, height=400>
-<img src="https://github.com/seapoe1809/Darna/assets/82007659/f718336b-e545-43e5-aa50-aa004c274954" width =200, height=400>
-<img src="https://github.com/seapoe1809/Darna/assets/82007659/86ab0bce-a0da-4330-9849-2d1600262f27" width =200, height=400>
-<img src="https://github.com/seapoe1809/Darna/assets/82007659/c8272ff2-69db-4984-8ebe-469cb02ee7ab" width =200, height=400>
+<img src="https://github.com/seapoe1809/Darna/assets/82007659/f1c26f0c-fb38-48e1-8551-5b36de750c91" width =300, height=400>
+<img src="https://github.com/seapoe1809/Darna/assets/82007659/f718336b-e545-43e5-aa50-aa004c274954" width =300, height=400>
+<img src="https://github.com/seapoe1809/Darna/assets/82007659/86ab0bce-a0da-4330-9849-2d1600262f27" width =300, height=400>
+<img src="https://github.com/seapoe1809/Darna/assets/82007659/c8272ff2-69db-4984-8ebe-469cb02ee7ab" width =300, height=400>
 
-<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5787.jpeg" width =200, height=400>
-<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5789.jpeg" width =200, height=400>
-<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5790.jpeg" width =200, height=400>
-<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5791.jpeg" width =200, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5787.jpeg" width =300, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5789.jpeg" width =300, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5790.jpeg" width =300, height=400>
+<img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5791.jpeg" width =300, height=400>
 
 
 basic requirements
