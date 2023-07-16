@@ -23,6 +23,66 @@ The Darna modification does require citing this repo when using the code. ;
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
+
+basic requirements
+=======================================
+#linux os (any distro as long as docker runs)
+#git
+#docker
+#python3
+
+For my project, I decided to make the software only for Linux users. I have gotten rid of step using nexcloud given the finickiness of its installation that requires domain registration and port forwarding of router. If you are willing to
+play with Nextcloud because it has built-in security features, and it already has apps available for iOS, Android please use the Darna installation steps.
+
+To make things even easier, I used Python for some automation to move files on your computer, create encrypted backups, and create some basic visualizations of your health data. This way, you can easily manage your health data, keep it secure, and view it in a way that makes sense to you.
+
+Please note that this is only the first version of the project, and I plan on adding more features and making improvements in the future.
+
+**step 1: Git clone and install Darna_local**
+=======================================
+
+a) Make sure you have docker and python3. If not go to docker.com and python3; get a free acct and then install. Once done do the following:
+ Install Git and git clone Darna_local repo:
+ 
+ 
+              $sudo apt-get install git
+              $git clone https://github.com/seapoe1809/Darna_local
+              $cd Darna_local
+              $pip install -r requirements.txt
+              $python3 setup_darna.py
+              
+        
+
+
+**Step 2: After the Health_server is set up it is ready to Launch:**
+=================================================================
+Now that your server is ready to launch, cd to your health_server and Launch. Navigate back to your /home/user and do the following:
+
+              $cd Health_server
+              $python3 darna.py
+
+The server should be active at port :3000. The flask server when launched will give you the IP address at which it launched. You could now navigate to that http:// adddress with any mobile device and access the server.
+If you have trouble launching with $python3 darna.py, you might have to speciy the version of python. eg. $python3.6 darna.py to launch server.
+
+The default password it 'health'. You could change it in darna.py if you wish.
+
+
+
+**Step3: Download your health data in the health_server folder:**
+=================================================================
+
+a) Download ios health files: On apple health app, click the profile icon, then choose "Export All Health Data" and save the zip file in files. Then click on 'UPLOAD' card on your flask server and download to your server.
+ 
+b) If you have data on EPIC MyChart or your doctors gateway, login and go to Menu, search 'sharing' or 'export', click 'yourself' and download a zip file to 'files'.  Then click on 'UPLOAD' card on your flask server and download to your server.
+ 
+c) PDF's and JPGS on mobile: 'UPLOAD' card of server and follow instructions to download to your server.
+
+d) Once files are downloaded, to UPLOAD directory, click tha 'RUN SYNC' card to move files and start Grafana.
+
+e) Tips are in 'CONNECT' card of server. 
+
+f)  The default password for Darna is 'health' and for Grafana is user:'admin', password:'health'.
+
 Snapshots:
 =============
 
@@ -52,65 +112,6 @@ Snapshots:
 <img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5789.jpeg" width =300, height=550>
 <img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5790.jpeg" width =300, height=550>
 <img src="https://github.com/seapoe1809/assets/blob/main/darna_local_assets/IMG_5791.jpeg" width =300, height=550>
-
-
-basic requirements
-=======================================
-#linux os (any distro as long as docker runs)
-#git
-#docker
-#python3
-
-For my project, I decided to make the software only for Linux users. I have gotten rid of step using nexcloud given the finickiness of its installation that requires domain registration and port forwarding of router. If you are willing to
-play with Nextcloud because it has built-in security features, and it already has apps available for iOS, Android please use the Darna installation steps.
-
-To make things even easier, I used Python for some automation to move files on your computer, create encrypted backups, and create some basic visualizations of your health data. This way, you can easily manage your health data, keep it secure, and view it in a way that makes sense to you.
-
-Please note that this is only the first version of the project, and I plan on adding more features and making improvements in the future.
-
-step 1: Git clone and install Darna_local
-=======================================
-
-a) Make sure you have docker and python3. If not go to docker.com and python3; get a free acct and then install. Once done do the following:
- Install Git and git clone Darna_local repo:
- 
- 
-              $sudo apt-get install git
-              $git clone https://github.com/seapoe1809/Darna_local
-              $cd Darna_local
-              $pip install -r requirements.txt
-              $python3 setup_darna.py
-              
-        
-
-
-Step 2: After the Health_server is set up it is ready to Launch:
-=================================================================
-Now that your server is ready to launch, cd to your health_server and Launch. Navigate back to your /home/user and do the following:
-
-              $cd Health_server
-              $python3 darna.py
-
-The server should be active at port :3000. The flask server when launched will give you the IP address at which it launched. You could now navigate to that http:// adddress with any mobile device and access the server.
-
-The default address it 'health'. You could change it in darna.py if you wish.
-
-
-
-**Step3: Download your health data in the health_server folder:**
-=================================================================
-
-a) Download ios health files: On apple health app, click the profile icon, then choose "Export All Health Data" and save the zip file in files. Then click on 'UPLOAD' card on your flask server and download to your server.
- 
-b) If you have data on EPIC MyChart or your doctors gateway, login and go to Menu, search 'sharing' or 'export', click 'yourself' and download a zip file to 'files'.  Then click on 'UPLOAD' card on your flask server and download to your server.
- 
-c) PDF's and JPGS on mobile: 'UPLOAD' card of server and follow instructions to download to your server.
-
-d) Once files are downloaded, to UPLOAD directory, click tha 'RUN SYNC' card to move files and start Grafana.
-
-e) Tips are in 'CONNECT' card of server. 
-
-f)  The default password for Darna is 'health' and for Grafana is user:'admin', password:'health'.
 
  
 **PIE IN SKY:** Is still under construction. I imagine it a way download external apps to run on your server. It adds more functionalities and dimensions to our server. Cheers! 
