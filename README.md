@@ -62,7 +62,16 @@ Now that your server is ready to launch, cd to your health_server and Launch. Na
               $python3 darna.py
 
 The server should be active at port :3000. The flask server when launched will give you the IP address at which it launched. You could now navigate to that http:// adddress with any mobile device and access the server.
-If you have trouble launching with $python3 darna.py, you might have to speciy the version of python. eg. $python3.6 darna.py to launch server.
+
+**Troubleshooting**
+===================
+If you have trouble launching with $python3 darna.py, you might have to speciy the version of python. eg. 
+
+          $python3.6 darna.py 
+
+To run server in background
+
+          $nohup python3 darna.py &
 
 The default password it 'health'. You could change it in darna.py if you wish.
 
