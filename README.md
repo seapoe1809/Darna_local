@@ -113,7 +113,7 @@ e) Tips are in 'CONNECT' card of server.
 f)  The default password for Darna is 'health' and for Grafana is user:'admin', password:'health'.
 
  
-PIE IN SKY: Is still under construction. I imagine it a way download external apps to run on your server. It adds more functionalities and dimensions to our server. Cheers! 
+**PIE IN SKY:** Is still under construction. I imagine it a way download external apps to run on your server. It adds more functionalities and dimensions to our server. Cheers! 
  
  Hope you like it! Please share feedback and let me know if you woudl like to contribute to this project. You could send feedbac by commenting on this repo or clicking on 'CONNECT' card and clicking on link saying 'email' the writer of repo.
  
