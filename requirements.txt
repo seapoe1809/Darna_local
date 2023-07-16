@@ -3,3 +3,4 @@ schedule
 stdiomask
 flask
 qrcode
+pdf2image
