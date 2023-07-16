@@ -1,7 +1,7 @@
 DARNA_LOCAL is DARNA V1.2
 
 # Darna_local which creates a local instance/ server without need for nextcloud
-##DARNA Healthy Intent v1.0- An open source intiative - self custody of your health data
+##DARNA Healthy Intent v1.2- An open source intiative - self custody of your health data
 ##feel free to contribute
 ##Early stage. Beta and under development and isnt secure. Please take all steps to safeguard your data. 
 
@@ -14,7 +14,7 @@ With this software, you can bring all your health data together in one place on 
 
 I created this project because I had trouble moving my own health data when I switched healthcare providers. As someone who works in the healthcare space, I see that current EHR solutions make it difficult to port your data, even though there are regulatory requirements to do so. It's frustrating to see that some institutions still rely on fax and scan to move data around, which shows how outdated and hidden these data porting techniques are.
 
-This is just the first iteration of the project, and I anticipate that there will be many more iterations before it takes a good form. But my goal is to make it easier for people to take ownership of their health data and store it in one place on their own computer. This way, they can decide who to share it with and have more control over their own health.
+This is just the second iteration of the project, and I anticipate that there will be many more iterations before it takes a good form. But my goal is to make it easier for people to take ownership of their health data and store it in one place on their own computer. This way, they can decide who to share it with and have more control over their own health.
 
 License?
 ========
@@ -113,7 +113,7 @@ e) Tips are in 'CONNECT' card of server.
 f)  The default password for Darna is 'health' and for Grafana is user:'admin', password:'health'.
 
  
- 
+PIE IN SKY: Is still under construction. I imagine it a way download external apps to run on your server. It adds more functionalities and dimensions to our server. Cheers! 
  
  Hope you like it! Please share feedback and let me know if you woudl like to contribute to this project. You could send feedbac by commenting on this repo or clicking on 'CONNECT' card and clicking on link saying 'email' the writer of repo.
  
