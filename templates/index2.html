@@ -22,9 +22,12 @@
       <li><a href="/analyze" target="_blank" class="analyze"><img class="icon" src="{{ url_for('static', filename='analyze.png') }}" alt="analyze"></a></li>
       <li><a href="https://claude.ai/" target="_blank" class="AI"><img class="icon" src="{{ url_for('static', filename='AI.png') }}" alt="AI"></a></li>
      
-      <li><a href="https://github.com/pnmeka/Darna_Tailscale_card" target="_blank" class="tailscale"><img class="icon" src="{{ url_for('static', filename='tailscale.png') }}" alt="TailScale"></a></li>
+      <li><a id="dynamic-link" target="_blank" class="tailscale">
+        <img class="icon" src="{{ url_for('static', filename='tailscale.png') }}" alt="tailscale"></a></li>
+      <script src="{{url_for('static', filename='tail_script.js')}}"></script>
       
-      <li><a href="https://github.com/pnmeka/XMR_card" target="_blank" class="XMR"><img class="icon" src="{{ url_for('static', filename='XMR.png') }}" alt="XMRD"></a></li>
+      <li><a id="dynamic-link2" target="_blank" class="XMR"><img class="icon" src="{{ url_for('static', filename='XMR.png') }}" alt="XMR"></a></li>
+      <script src="{{url_for('static', filename='xmr_script.js')}}"></script>
        
 
     </ul>
