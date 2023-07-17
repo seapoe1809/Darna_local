@@ -47,7 +47,7 @@ def login():
             return redirect('/')
         else:
             # Password is incorrect, show an error message
-            error_message = 'Invalid password. Please try again.'
+            error_message = ''
             return render_template('login.html', error_message=error_message)
 
     # Render the login page template
@@ -338,6 +338,7 @@ def page_not_found(error):
     print("Error 404 Encountered")
     return render_template('errors.html', error_message='Page not found'), 404
 
+        
 if __name__== '__main__':
     app.run('0.0.0.0', port=3001)
     print("server is running at http://localhost:3001")
