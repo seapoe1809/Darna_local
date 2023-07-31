@@ -46,9 +46,17 @@ a) Make sure you have docker and python3. If not go to docker.com and python3; g
  
  
               $sudo apt-get install git
+              
+              
               $git clone https://github.com/seapoe1809/Darna_local
+
+              
               $cd Darna_local
+
+              
               $pip install -r requirements.txt
+
+              
               $python3 setup_darna.py
               
         
