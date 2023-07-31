@@ -46,16 +46,24 @@ a) Make sure you have docker and python3. If not go to docker.com and python3; g
  
  
               $sudo apt-get install git
-              
+
+ Git clone the Darna_local repo
               
               $git clone https://github.com/seapoe1809/Darna_local
 
+ Make sure pip is installed to help install python modules
+
+              $sudo apt-get install python3-pip
+
+Change directory into the Git repo directory
               
               $cd Darna_local
 
+Now install the python modules needed to launch Darna_local
               
               $pip install -r requirements.txt
 
+Start the setup of the Darna_local
               
               $python3 setup_darna.py
               
@@ -67,6 +75,9 @@ a) Make sure you have docker and python3. If not go to docker.com and python3; g
 Now that your server is ready to launch, cd to your health_server and Launch. Navigate back to your /home/user and do the following:
 
               $cd Health_server
+
+The final step will now start up your flask server. Make sure you do this to start server everytime you reboot your computer
+
               $python3 darna.py
 
 The server should be active at port :3000. The flask server when launched will give you the IP address at which it launched. You could now navigate to that http:// adddress with any mobile device and access the server.
