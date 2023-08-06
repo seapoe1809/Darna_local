@@ -44,28 +44,27 @@ Please note that this is only the first version of the project, and I plan on ad
 a) Make sure you have docker and python3. If not go to docker.com and python3; get a free acct and then install. Once done do the following:
  Install Git and git clone Darna_local repo:
  
- 
-              $sudo apt-get install git
+    sudo apt-get install git
 
  Git clone the Darna_local repo
               
-              $git clone https://github.com/seapoe1809/Darna_local
+    git clone https://github.com/seapoe1809/Darna_local
 
  Make sure pip is installed to help install python modules
 
-              $sudo apt-get install python3-pip
+    sudo apt-get install python3-pip
 
 Change directory into the Git repo directory
               
-              $cd Darna_local
+    cd Darna_local
 
 Now install the python modules needed to launch Darna_local
               
-              $pip install -r requirements.txt
+    pip install -r requirements.txt
 
 Start the setup of the Darna_local
               
-              $python3 setup_darna.py
+    python3 setup_darna.py
               
         
 
@@ -74,11 +73,11 @@ Start the setup of the Darna_local
 =================================================================
 Now that your server is ready to launch, cd to your health_server and Launch. Navigate back to your /home/user and do the following:
 
-              $cd Health_server
+    cd Health_server
 
 The final step will now start up your flask server. Make sure you do this to start server everytime you reboot your computer
 
-              $python3 darna.py
+    python3 darna.py
 
 The server should be active at port :3000. The flask server when launched will give you the IP address at which it launched. You could now navigate to that http:// adddress with any mobile device and access the server.
 
@@ -86,11 +85,11 @@ The server should be active at port :3000. The flask server when launched will g
 ===================
 If you have trouble launching with $python3 darna.py, you might have to speciy the version of python. eg. 
 
-          $python3.6 darna.py 
+    python3.6 darna.py 
 
 To run server in background
 
-          $nohup python3 darna.py &
+    nohup python3 darna.py &
 
 The default password it 'health'. You could change it in darna.py if you wish.
 
