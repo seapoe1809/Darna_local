@@ -4,3 +4,4 @@ stdiomask
 flask
 qrcode
 pdf2image
+gunicorn
