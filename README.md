@@ -75,9 +75,13 @@ Now that your server is ready to launch, cd to your health_server and Launch. Na
 
     cd Health_server
 
-The final step will now start up your flask server. Make sure you do this to start server everytime you reboot your computer
+The final step will now start up your **development Server**. It will show logs to debug. Make sure you do this to start server everytime you reboot your computer
 
     python3 darna.py
+
+To start the **production server**. Make sure you do this to start server everytime you reboot your computer:
+
+    gunicorn -w 1 -b 0.0.0.0:3001 darna:app
 
 The server should be active at port :3000. The flask server when launched will give you the IP address at which it launched. You could now navigate to that http:// adddress with any mobile device and access the server.
 
