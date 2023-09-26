@@ -1,4 +1,5 @@
-DARNA_LOCAL is DARNA V1.2
+###############################################DEPRECATED ###############################
+LATEST IS AT https://github.com/seapoe1809/Health_server
 
 # Darna_local which creates a local instance/ server without need for nextcloud
 ##DARNA Healthy Intent v1.2- An open source intiative - self custody of your health data
